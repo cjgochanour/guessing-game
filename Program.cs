@@ -1,10 +1,11 @@
 ﻿using System;
 
 int SecretNumber = 42;
+Console.WriteLine("Guess the secret number!");
 
 for (int i = 0; i < 4; i++)
 {
-    Console.WriteLine("Guess the secret number: ");
+    Console.Write($"Your guess ({i + 1})> ");
     int UserGuess = int.Parse(Console.ReadLine());
     if (UserGuess != SecretNumber)
     {
