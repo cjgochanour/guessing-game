@@ -10,11 +10,15 @@ void Main()
     {
         Console.Write($"Your guess ({i + 1})> ");
         int UserGuess = int.Parse(Console.ReadLine());
-        if (UserGuess != SecretNumber)
+        if (UserGuess > SecretNumber)
         {
-            Console.WriteLine($"You guessed incorrectly! {4 - (i + 1)} guesses remain.");
+            Console.WriteLine($"Your guess was too high! {3 - i} guesses remain.");
         }
-        if (UserGuess == SecretNumber)
+        else if (UserGuess < SecretNumber)
+        {
+            Console.WriteLine($"Your guess was too low! {3 - i} guesses remain.");
+        }
+        else
         {
             Console.WriteLine("You guessed correctly!");
             break;
