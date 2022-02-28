@@ -4,14 +4,14 @@ Main();
 
 void Main()
 {
-    int SelectedDifficulty = 0;
+    int selectedDifficulty = 0;
     Console.WriteLine("Guess the secret number!");
-    while (SelectedDifficulty != 1 & SelectedDifficulty != 2 & SelectedDifficulty != 3)
+    while (selectedDifficulty != 1 & selectedDifficulty != 2 & selectedDifficulty != 3 & selectedDifficulty != 4)
     {
-        Console.Write("Please select a difficulty by its number: Easy (1), Medium (2), Hard (3) > ");
-        SelectedDifficulty = int.Parse(Console.ReadLine());
+        Console.Write("Please select a difficulty by its number: Easy (1), Medium (2), Hard (3) Cheater (4) > ");
+        selectedDifficulty = int.Parse(Console.ReadLine());
     }
-    switch (SelectedDifficulty)
+    switch (selectedDifficulty)
     {
         case 1:
             TheGame(8);
@@ -22,21 +22,24 @@ void Main()
         case 3:
             TheGame(4);
             break;
+        case 4:
+            TheGame(2147483647);
+            break;
     }
 }
 
 void TheGame(int MaxGuesses)
 {
-    int SecretNumber = new Random().Next(1, 101);
+    int secretNumber = new Random().Next(1, 101);
     for (int i = 0; i < MaxGuesses; i++)
     {
         Console.Write($"Your guess ({i + 1})> ");
-        int UserGuess = int.Parse(Console.ReadLine());
-        if (UserGuess > SecretNumber)
+        int userGuess = int.Parse(Console.ReadLine());
+        if (userGuess > secretNumber)
         {
             Console.WriteLine($"Your guess was too high! {MaxGuesses - 1 - i} guesses remain.");
         }
-        else if (UserGuess < SecretNumber)
+        else if (userGuess < secretNumber)
         {
             Console.WriteLine($"Your guess was too low! {MaxGuesses - 1 - i} guesses remain.");
         }
